@@ -2,7 +2,7 @@ import "./styles.scss";
 import * as Model from "./modules/model.js";
 import * as Controller from "./modules/controller.js";
 import * as View from "./modules/view.js";
-View.render()
+View.renderSidebar()
 console.log("legit")
 // function newProjectButton(){
 //     const newProjectButton = document.getElementById("new-project-btn")

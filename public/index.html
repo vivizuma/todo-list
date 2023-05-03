@@ -15,10 +15,21 @@
         <div id="static-sidebar">
           <h3>My Lists</h3>
           <button id="new-project-btn">New Project +</button>
+          <div id="modal-space">
+            <dialog id="new-project-modal">
+              <button id="close-modal" class="material-icons">close</button>
+              <input
+                type="text"
+                name="project-name"
+                placeholder="Name your project.."
+                class="input-field"
+                id="project-input-field"
+              />
+              <button class="submit-btn"id="submit-project-btn">Submit</button>
+            </dialog>
+          </div>
         </div>
-        <div id="dynamic-sidebar">
-         
-        </div>
+        <div id="dynamic-sidebar"></div>
       </div>
       <div id="main"></div>
     </div>

@@ -10,7 +10,7 @@
 // read todo
 // update todo  -- set local storage
 // delete todo  -- set local storage
-const projects = [
+let projects = [
   { name: "projectTest", todos: [1, 2, 3] },
   { name: "workout", todos: ["lift", "run"] },
 ];
