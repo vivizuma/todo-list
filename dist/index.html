@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<script defer src="main.js"></script></head>
-<body>
-    <div>
-        Hello
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List Extreme</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1>Todo-List-Extreme</h1>
+      </div>
+      <div id="sidebar">
+        <div id="static-sidebar">
+          <h3>My Lists</h3>
+          <button id="new-project-btn">New Project +</button>
+          <div id="modal-space">
+            <dialog id="new-project-modal">
+              <button id="close-modal" class="material-icons">close</button>
+              <input
+                type="text"
+                name="project-name"
+                placeholder="Name your project.."
+                class="input-field"
+                id="project-input-field"
+              />
+              <input type="submit" class="submit-btn"id="submit-project-btn"></input>
+            </dialog>
+          </div>
+        </div>
+        <div id="dynamic-sidebar"></div>
+      </div>
+      <div id="main">
+        <dialog id="example-dialog">
+          <h3>Add todo</h3>
+          <form>
+            <label for="todo-name">Name:</label>
+            <input type="text" id="todo-name" name="todo-name"><br>
+        
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description"><br>
+        
+            <label>Priority:</label>
+            <input type="radio" name="priority" value="low" id="priority-low">
+            <label for="priority-low">Low</label>
+            <input type="radio" name="priority" value="medium" id="priority-medium">
+            <label for="priority-medium">Medium</label>
+            <input type="radio" name="priority" value="high" id="priority-high">
+            <label for="priority-high">High</label><br>
+        
+            <button type="submit">Submit</button>
+          </form>
+        </dialog>
+      </div>
     </div>
-    <h1>HELLOooooooo</h1>
-    <p>HELLOoooooo</p>
-</body>
+  <script defer src="main.js"></script></body>
 </html>

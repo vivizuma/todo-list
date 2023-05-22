@@ -23,6 +23,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+      inject: "body", //inject script at bottom
     }),
   ],
   module: {
@@ -33,7 +34,7 @@ module.exports = {
       },
       {
         test: /\.jpg$/,
-        type: 'asset/resource',
+        type: "asset/resource",
       },
     ],
   },

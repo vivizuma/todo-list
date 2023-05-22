@@ -4,6 +4,7 @@ import * as Controller from "./modules/controller.js";
 import * as View from "./modules/view.js";
 View.renderSidebar()
 console.log("legit")
+View.renderMain()
 // function newProjectButton(){
 //     const newProjectButton = document.getElementById("new-project-btn")
 //     newProjectButton.addEventListener("click",()=> console.log("hello"))

@@ -25,13 +25,42 @@
                 class="input-field"
                 id="project-input-field"
               />
-              <button class="submit-btn"id="submit-project-btn">Submit</button>
+              <input type="submit" class="submit-btn"id="submit-project-btn"></input>
+            </dialog>
+            <dialog id="example-dialog">
+              <h3>Add todo</h3>
+              <form id="todo-form">
+                <label for="todo-name">Name:</label>
+                <input type="text" id="todo-name" name="todo-name"><br>
+                <span id="name-error" class="error"></span>
+
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description">
+                <span id="description-rror" class="error"></span>
+                <fieldset>
+                <legend>Priority:</legend>
+                <input type="radio" name="priority" value="low" id="priority-low">
+                <label for="priority-low">Low</label>
+                <input type="radio" name="priority" value="medium" id="priority-medium">
+                <label for="priority-medium">Medium</label>
+                <input type="radio" name="priority" value="high" id="priority-high">
+                <label for="priority-high">High</label><br>
+              </fieldset>
+              <span id="priority-error" class="error"></span>
+
+                <label for="due-date">Due for</label>
+                <input type="date" id="due-date" name="due-date">
+                <span id="due-error" class="error"></span>
+                <button id="submit-todo" type="submit">Submit</button>
+              </form>
             </dialog>
           </div>
         </div>
         <div id="dynamic-sidebar"></div>
       </div>
-      <div id="main"></div>
+      <div id="main">
+        
+      </div>
     </div>
   </body>
 </html>
