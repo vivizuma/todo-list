@@ -34,7 +34,22 @@ function getTodos(index) {
   const todos = Model.projects[index].todos;
   return todos;
 }
-
+function todoInputHandler(currentProjectId, name, description, priority, due) {
+  const todo = Model.constructTodo(
+    name,
+    description,
+    priority,
+    currentProjectId,
+    due
+  );
+  Model.addTodo(currentProjectId, todo);
+  console.log(todo);
+  View.renderMain(Controller.getTodosByProjectId(todo.currentProjectId));
+}
+function getTodosByProjectId(){
+  
+  
+}
 function submitProjectBtnClicked(name) {
   if (name !== "") {
     createProject(name);
@@ -109,7 +124,9 @@ export {
   getActiveProjectId,
   onProjectClick,
   getTodos,
+  getTodosByProjectId,
   validateRadioButtons,
+  todoInputHandler,
   validateTodoForm,
   getCurrentProjectId,
   submitTodo,

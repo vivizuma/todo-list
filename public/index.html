@@ -24,32 +24,64 @@
                 placeholder="Name your project.."
                 class="input-field"
                 id="project-input-field"
+                required
               />
-              <input type="submit" class="submit-btn"id="submit-project-btn"></input>
+              <button type="submit" class="submit-btn" id="submit-project-btn">
+                Submit
+              </button>
             </dialog>
-            <dialog id="example-dialog">
+            <dialog id="add-todo-modal">
               <h3>Add todo</h3>
               <form id="todo-form">
-                <label for="todo-name">Name:</label>
-                <input type="text" id="todo-name" name="todo-name"><br>
+                <label for="todo-name">Name*</label>
+                <input
+                  type="text"
+                  id="todo-name"
+                  name="todo-name"
+                  minlength="2"
+                  maxlength="32"
+                  required
+                /><br />
                 <span id="name-error" class="error"></span>
 
                 <label for="description">Description:</label>
-                <input type="text" id="description" name="description">
-                <span id="description-rror" class="error"></span>
+                <input type="text" id="description" name="description" />
+                <span id="description-error" class="error"></span>
                 <fieldset>
-                <legend>Priority:</legend>
-                <input type="radio" name="priority" value="low" id="priority-low">
-                <label for="priority-low">Low</label>
-                <input type="radio" name="priority" value="medium" id="priority-medium">
-                <label for="priority-medium">Medium</label>
-                <input type="radio" name="priority" value="high" id="priority-high">
-                <label for="priority-high">High</label><br>
-              </fieldset>
-              <span id="priority-error" class="error"></span>
+                  <legend>Priority:</legend>
+                  <input
+                    type="radio"
+                    name="priority"
+                    value="low"
+                    id="priority-low"
+                  />
+                  <label for="priority-low">Low</label>
+                  <input
+                    type="radio"
+                    name="priority"
+                    value="medium"
+                    id="priority-medium"
+                    checked
+                  />
+                  <label for="priority-medium">Medium</label>
+                  <input
+                    type="radio"
+                    name="priority"
+                    value="high"
+                    id="priority-high"
+                  />
+                  <label for="priority-high">High</label><br />
+                </fieldset>
+                <span id="priority-error" class="error"></span>
 
                 <label for="due-date">Due for</label>
-                <input type="date" id="due-date" name="due-date">
+                <input
+                  type="date"
+                  id="due-date"
+                  name="due-date"
+                  min="1900-01-01"
+                  max="2200-01-01"
+                />
                 <span id="due-error" class="error"></span>
                 <button id="submit-todo" type="submit">Submit</button>
               </form>
@@ -58,9 +90,7 @@
         </div>
         <div id="dynamic-sidebar"></div>
       </div>
-      <div id="main">
-        
-      </div>
+      <div id="main"></div>
     </div>
   </body>
 </html>

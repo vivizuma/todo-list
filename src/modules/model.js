@@ -13,6 +13,7 @@ function constructProject(name, todos = null) {
   if ((todos = null)) {
     todos = [];
   }
+  todos = [];
   return {
     name,
     todos,
@@ -24,10 +25,10 @@ function generateTodoId() {
   todoIdCounter++;
   return todoId;
 }
-function constructTodo(task, description, due, priority, projectId) {
+function constructTodo(name, description, priority, projectId, due) {
   let todoId = generateTodoId();
   return {
-    task,
+    name,
     description,
     due,
     priority,
@@ -50,6 +51,16 @@ function addTodo(activeProjectId, todo) {
     }
   }
   // push todo to todos array
+}
+function findProjectById(id) {
+  let project;
+  for (let i = 0; i < projects.length; i++) {
+    if (project[i].projectId === id) {
+      project = project[i];
+      break;
+    }
+  }
+  return project;
 }
 //add project object to projects array
 function addProject(project) {

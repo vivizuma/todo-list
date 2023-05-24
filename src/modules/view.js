@@ -1,4 +1,5 @@
 import * as Controller from "./controller.js";
+import { format, parse } from "date-fns";
 let activeProjectId = 0;
 // render
 function clearProjects() {
@@ -70,37 +71,64 @@ function eventListeners() {
     }
   });
   const form = document.getElementById("todo-form");
+  const todoModal = document.getElementById("add-todo-modal");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    //validate function
-    validateTodoFormInput()
     //input fields
+    const name = document.getElementById("todo-name");
+    const description = document.getElementById("description");
+    const due = document.getElementById("due-date");
+    const priorities = document.getElementsByName("priority");
+
     //input values
- 
+    const nameInput = name.value;
+    const descriptionInput = description.value;
+    const dueInput =
+      due.value === ""
+        ? format(new Date(), "dd/MM/yyyy")
+        : format(parse(due.value, "yyyy-MM-dd", new Date()), "dd/MM/yyyy");
+
+    let priorityInput = 0;
+    //get priority
+    for (let i = 0; i < priorities.length; i++) {
+      if (priorities[i].checked) {
+        priorityInput = priorities[i].value;
+        break;
+      }
+    }
+    //get active project id
+    let currentProjectId = activeProjectId;
+    console.log(currentProjectId);
+    console.log(nameInput);
+    console.log(descriptionInput);
+    console.log(priorityInput);
+    console.log(dueInput);
+    Controller.todoInputHandler(
+      currentProjectId,
+      nameInput,
+      descriptionInput,
+      priorityInput,
+      dueInput
+    );
     todoModal.close();
     clearTodoModal();
   });
 }
-function validateTodoFormInput(){
+function validateTodoFormInput() {
   //input fields
-  const name = document.getElementById("todo-name")
+  const name = document.getElementById("todo-name");
   const description = document.getElementById("description");
   //error spans
-  const nameError = document.getElementById("name-error")
+  const nameError = document.getElementById("name-error");
   const descriptionError = document.getElementById("description-error");
-  const dueError = document.getElementById("due-error")
+  const dueError = document.getElementById("due-error");
 
-  if (!name.value){
-    nameError.innerHTML = "Name is required"
-
+  if (!name.value) {
+    nameError.innerHTML = "Name is required";
   }
 }
-function showError(){
-  
-
-
-}
-function clearError(){}
+function showError() {}
+function clearError() {}
 function clearTodoModal() {
   const todoNameField = document.getElementById("todo-name");
   todoNameField.value = "";
@@ -134,12 +162,12 @@ function renderMain(todos, projectName) {
     const projectTitle = document.createElement("h1");
     const addBtn = document.createElement("button");
     addBtn.innerHTML = "+";
-    activeProjectId =
-      //add event listener
-      addBtn.addEventListener("click", () => {
-        const todoModal = document.getElementById("example-dialog");
-        todoModal.showModal();
-      });
+
+    const addTodoModal = document.getElementById("add-todo-modal");
+    //add event listener
+    addBtn.addEventListener("click", () => {
+      addTodoModal.showModal();
+    });
 
     projectTitle.innerHTML = `${projectName}`;
     main.appendChild(projectTitle);
@@ -183,11 +211,18 @@ function showProjectModal() {
   modal.showModal();
 }
 //create project
+function todoElementCreator(item, index) {
+  const main = document.getElementById("main");
+  const todosContainer = document.createElement("div");
+
+  todos.setAttribute("id", "todos-container");
+}
 function elementCreator(item, index) {
   const sidebar = document.getElementById("dynamic-sidebar");
   //create elements
   const container = document.createElement("div");
   const name = document.createElement("button");
+  name.setAttribute("class", "project-btn");
   const delBtn = document.createElement("button");
   //set attributes
   container.setAttribute("data-index", index);
