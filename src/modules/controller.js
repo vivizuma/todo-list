@@ -42,14 +42,13 @@ function todoInputHandler(currentProjectId, name, description, priority, due) {
     currentProjectId,
     due
   );
+
   Model.addTodo(currentProjectId, todo);
   console.log(todo);
-  View.renderMain(Controller.getTodosByProjectId(todo.currentProjectId));
+  console.log(getProjects());
+  View.renderMain();
 }
-function getTodosByProjectId(){
-  
-  
-}
+function getTodosByProjectId() {}
 function submitProjectBtnClicked(name) {
   if (name !== "") {
     createProject(name);
@@ -76,6 +75,7 @@ function deleteProject(index) {
 function refreshView() {
   View.clearProjects();
   View.renderSidebar();
+  View.renderMain();
 }
 function getActiveProjectId(index) {
   let id = 0;

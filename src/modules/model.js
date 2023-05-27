@@ -20,6 +20,17 @@ function constructProject(name, todos = null) {
     projectId,
   };
 }
+function getTodosByActiveProject(activeProject) {
+  for (let i = 0; i < projects.length; i++) {
+    let project = projects[i];
+    let todos;
+    if (project.projectId === activeProject) {
+      todos = project.todos;
+      break;
+    }
+  }
+  return todos;
+}
 function generateTodoId() {
   let todoId = todoIdCounter;
   todoIdCounter++;
@@ -36,7 +47,9 @@ function constructTodo(name, description, priority, projectId, due) {
     projectId,
   };
 }
-
+// add todo to project using index
+function addProjectByProjectIndex(index, todo) {}
+//get index of relevant project
 function findRelevantProject(projectId) {}
 function addTodo(activeProjectId, todo) {
   //find project with active project Id
@@ -52,15 +65,18 @@ function addTodo(activeProjectId, todo) {
   }
   // push todo to todos array
 }
-function findProjectById(id) {
+//returns project index
+function findProjectById(id, projects) {
   let project;
+  let index;
   for (let i = 0; i < projects.length; i++) {
     if (project[i].projectId === id) {
       project = project[i];
+      index = i;
       break;
     }
   }
-  return project;
+  return index;
 }
 //add project object to projects array
 function addProject(project) {
@@ -71,7 +87,9 @@ function addProject(project) {
 // export {constructProject};
 export {
   projects,
+  getTodosByActiveProject,
   constructProject,
+  findProjectById,
   addProject,
   constructTodo,
   addTodo,

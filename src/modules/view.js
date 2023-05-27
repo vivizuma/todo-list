@@ -175,14 +175,7 @@ function renderMain(todos, projectName) {
     if (todos === null) {
       console.log("no todos");
     } else {
-      todos.forEach((todo, index) => {
-        const todoItem = document.createElement("div");
-        const title = document.createElement("div");
-        title.innerHTML = todos[index];
-        todoItem.appendChild(title);
-
-        main.appendChild(todoItem);
-      });
+      todos.forEach((todoItem, index) => {});
     }
   }
   //TODO 4th may
@@ -193,7 +186,7 @@ function renderMain(todos, projectName) {
   //   a.) render todo name
   //   b.) render done button
 }
-function renderTodos(index) {
+function renderTodos(activeProjectId) {
   const todos = Controller.getTodos(index);
   todos.forEach((item, index) => {
     console.log(item);
